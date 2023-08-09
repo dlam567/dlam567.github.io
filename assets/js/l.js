@@ -1,6 +1,6 @@
 let accountAll = [{ // 存储账户json数据的数组
     username: 'Admin',
-    passwd: 'xmj20071215',
+    passwd: '@Password',
 }]
 
 function login() { //登陆判断
