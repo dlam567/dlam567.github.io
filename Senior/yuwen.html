@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tools</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">学习工具箱</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">Home</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<header>
+								<h1>Tools</h1>
+								<h3><a href="https://www.ximalaya.com/album/37882837">高中必背72篇古诗文标准朗读</a></h3>
+							</header>
+								<blockquote>
+								<p>自动播放: <span id="tishi"> </span><br><br><audio id="musicPlayer" src="yuwen/mp3/1.沁园春·长沙.mp3" autoplay="autoplay" controls="controls" >
+								
+								<script type="text/javascript">
+
+									var musicIndex=0, musicList=['yuwen/mp3/1.沁园春·长沙.mp3','yuwen/mp3/2.诗经·邶风·静女.m4a','yuwen/mp3/3.古诗十九首·涉江采芙蓉.m4a','yuwen/mp3/4.琵琶行并序.mp3']
+
+									document.getElementById("tishi").innerHTML="yuwen/mp3/1.沁园春·长沙.mp3"
+									document.querySelector('#musicPlayer').addEventListener('ended', function(){
+
+										musicIndex=musicIndex<musicList.length-1?musicIndex+1:0
+
+										this.src=musicList[musicIndex]
+										document.getElementById("tishi").innerHTML=musicList[musicIndex]
+
+									})
+									function Mup(){
+										if(musicIndex>-1){musicIndex = musicIndex-1
+													setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)}
+
+											document.getElementById("tip").innerHTML="本曲后播放: "+musicList[musicIndex+1]
+										if(musicIndex<-1){document.getElementById("tip").innerHTML='没有上一首了哦';
+											setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)}
+									}
+									function Mdown(){
+										musicIndex = musicIndex+1
+											document.getElementById("tip").innerHTML="本曲后播放: "+musicList[musicIndex+1]
+											setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)
+										if(musicIndex>=3){document.getElementById("tip").innerHTML='没有下一首了哦(自动转到1)';
+													setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)}
+									}
+									function pause() {
+										window.speechSynthesis.pause();
+									}
+								</script>
+								<p><input class="button small" type="submit" value="上一首" onclick="Mup()"  />&ensp;&ensp;<input class="button small" type="submit" value="下一首" onclick="Mdown()" /><br><span id="tip"> </span></blockquote></p>
+							</p>
+								<p>01.沁园春·长沙<audio controls> <source src="yuwen/mp3/1.沁园春·长沙.mp3"></audio><br></p>
+								<p>02.诗经·邶风·静女<audio controls> <source src="yuwen/mp3/2.诗经·邶风·静女.m4a"></audio><br></p>
+								<p>03.古诗十九首·涉江采芙蓉<audio controls> <source src="yuwen/mp3/3.古诗十九首·涉江采芙蓉.m4a"></audio><br></p>
+								<p>04.琵琶行并序<audio controls> <source src="yuwen/mp3/4.琵琶行并序.mp3"></audio><br></p>
+								<!-- <p>05.<audio controls> <source src="yuwen/mp3/5..mp3"></audio><br></p>
+								<p>06.<audio controls> <source src="yuwen/mp3/6..mp3"></audio><br></p>
+								<p>07.<audio controls> <source src="yuwen/mp3/7..mp3"></audio><br></p>
+								<p>09.<audio controls> <source src="yuwen/mp3/9..mp3"></audio><br></p>
+								<p>10.<audio controls> <source src="yuwen/mp3/10..mp3"></audio><br></p> -->
+						</div>
+					</div>
+
+				
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
