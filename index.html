@@ -12,8 +12,14 @@
 		<link rel="stylesheet" href="assets/css/main_.css" />
 		<link rel="shortcut icon" href="images/app.ico">
 	</head>
-	<body class="is-preload">
-
+	<body class="is-preload" oncontextmenu="alert('禁用右键'); return false" onselect="return false">
+        <script>
+            document.onkeydown = function(event){
+            const keyCode = event.keyCode
+            if(keyCode == 123){
+                alert('禁用F12键')
+                return false}}
+        </script>
 		<!-- Header -->
 			<header id="header">
 				<h1>登录</h1>
