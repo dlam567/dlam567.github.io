@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>dlam567.github.io · 登录</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main_.css" />
+		<link rel="shortcut icon" href="images/app.ico">
+	</head>
+	<body class="is-preload" oncontextmenu="alert('禁用右键'); return false" onselect="return false">
+        <script>
+            document.onkeydown = function(event){
+            const keyCode = event.keyCode
+            if(keyCode == 123){
+                alert('禁用F12键')
+                return false}}
+        </script>
+		<!-- Header -->
+			<header id="header">
+				<h1>登录</h1>
+				<p>请登录您的账户以管理及查看内容<br>Tip: 请向开发者索要账户及密码.</p>
+			</header>
+
+		<!-- Signup Form -->
+		<iframe name="formsubmit" style="display:none;">
+		</iframe>
+		<!-- 将form表单提交的窗口指向隐藏的ifrmae,并通过ifrmae提交数据。 -->
+		<form action="ret.html" method="POST" name="formphp" target="formsubmit" id="signup-form">
+
+				<script language="javascript" type="text/javascript">
+
+				function checkUser(){
+				var flag = {flag_}
+					var uname=document.getElementById("uname");
+					var pwd=document.getElementById("pwd");
+					if(flag==1){
+						alert("用户或密码输入错误");
+					}
+				}
+				</script>
+				<input type="text" id="username" placeholder="用户名"/>
+				<input type="password" id="passwd" placeholder="密码"/>
+				<input type="button" id="btnClear" value="⨉" title="清除全部" onclick="doClear()" />
+				<input type="submit" value="登录" onclick="login()"  /><span id="tishi"></span>
+			</form>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+<!--				<ul class="icons">-->
+<!--					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
+<!--					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
+<!--					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>-->
+<!--					<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>-->
+<!--				</ul>-->
+				<ul class="copyright">
+					<li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/main_.js" > </script>
+			<script src="assets/js/l.js" > </script>
+
+	</body>
+</html>
