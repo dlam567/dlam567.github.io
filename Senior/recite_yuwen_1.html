@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tools</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">学习工具箱</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../index.html">Home</a></li>
+						</ul>
+						<h2>页面内操作</h2>
+						<h3>暂停音频:</h3>
+						<ul>
+
+							<input style="background-color: #FFFFFF" class="button small" type="submit" value="暂停全部音频" onclick="pauseAll()"  />
+							<input style="background-color: #FFFFFF" class="button small" type="submit" value="仅保留自动播放部分" onclick="PauseEcAuto('musicPlayer')" />
+
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<header>
+								<h1>语文 - Tools</h1>
+								<h3><a href="https://www.ximalaya.com/album/37882837">高中语文必修上册背诵篇目</a></h3>
+							</header>
+								<blockquote>
+								<p>自动播放: <span id="tishi"> </span><br><br><audio id="musicPlayer" src="yuwen/mp3/1.沁园春·长沙.mp3" autoplay="autoplay" controls="controls" >
+								</audio>
+								<p><input class="button small" type="submit" value="上一首" onclick="Mup()"  />&ensp;&ensp;<input class="button small" type="submit" value="下一首" onclick="Mdown()" /><br><span id="tip"> </span></p></blockquote>
+							</p>
+
+							<br><hr>
+							<h3 id="name">这里显示标题</h3>
+							<h4 id="author">这里显示作者</h4>
+							<span id="detail">这里显示详细信息</span>
+							<!-- 	<p>01.沁园春·长沙<audio controls loop="loop"> <source src="yuwen/mp3/1.沁园春·长沙.mp3"></audio><br></p>
+								<p>02.诗经·邶风·静女<audio controls loop="loop"> <source src="yuwen/mp3/2.诗经·邶风·静女.m4a"></audio><br></p>
+								<p>03.古诗十九首·涉江采芙蓉<audio controls loop="loop"> <source src="yuwen/mp3/3.古诗十九首·涉江采芙蓉.m4a"></audio><br></p>
+								<p>04.琵琶行<audio controls loop="loop"> <source src="yuwen/mp3/4.琵琶行.mp3"></audio><br></p>
+								<p>05.劝学<audio controls loop="loop"> <source src="yuwen/mp3/5.劝学.mp3"></audio><br></p>
+								<p>06.师说<audio controls> <source src="yuwen/mp3/6.师说.mp3"></audio><br></p> -->
+							<!--	<p>07.<audio controls> <source src="yuwen/mp3/7..mp3"></audio><br></p>-->
+							<!--	<p>09.<audio controls> <source src="yuwen/mp3/9..mp3"></audio><br></p>-->
+							<!--	<p>10.<audio controls> <source src="yuwen/mp3/10..mp3"></audio><br></p>-->
+
+
+							<script type="text/javascript">
+								function pauseAll(){
+									var audioElements = document.getElementsByTagName('audio');
+
+									for (var i=0; i<audioElements.length; i++) {
+
+										if (!audioElements[i].paused) {
+											audioElements[i].pause();
+										}
+									}
+								}
+								function PauseEcAuto(currentAudioId) {
+									var audioElements = document.getElementsByTagName('audio');
+
+									for (var i=0; i<audioElements.length; i++) {
+										var audioId = audioElements[i].getAttribute('id');
+
+										if (audioId !== currentAudioId && !audioElements[i].paused) {
+											audioElements[i].pause();
+										}
+									}
+								}
+							</script>
+
+						</div>
+					</div>
+			</div>
+
+				
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/yuwen.js"></script>
+			
+
+	</body>
+</html>

@@ -41,13 +41,21 @@
 						<ul>
 							<li><a href="../index.html">Home</a></li>
 						</ul>
+						<h2>页面内操作</h2>
+						<h3>暂停音频:</h3>
+						<ul>
+
+							<input style="background-color: #FFFFFF" class="button small" type="submit" value="暂停全部音频" onclick="pauseAll()"  />
+							<input style="background-color: #FFFFFF" class="button small" type="submit" value="仅保留自动播放部分" onclick="PauseEcAuto('musicPlayer')" />
+
+						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
 							<header>
-								<h1>Tools</h1>
+								<h1>语文 - Tools</h1>
 								<h3><a href="https://www.ximalaya.com/album/37882837">高中必背72篇古诗文标准朗读</a></h3>
 							</header>
 								<blockquote>
@@ -55,7 +63,7 @@
 								
 								<script type="text/javascript">
 
-									var musicIndex=0, musicList=['yuwen/mp3/1.沁园春·长沙.mp3','yuwen/mp3/2.诗经·邶风·静女.m4a','yuwen/mp3/3.古诗十九首·涉江采芙蓉.m4a','yuwen/mp3/4.琵琶行并序.mp3']
+									var musicIndex=0, musicList=['yuwen/mp3/1.沁园春·长沙.mp3','yuwen/mp3/2.诗经·邶风·静女.m4a','yuwen/mp3/3.古诗十九首·涉江采芙蓉.m4a','yuwen/mp3/4.琵琶行.mp3','yuwen/mp3/5.劝学.mp3','yuwen/mp3/6.师说.mp3']
 
 									document.getElementById("tishi").innerHTML="yuwen/mp3/1.沁园春·长沙.mp3"
 									document.querySelector('#musicPlayer').addEventListener('ended', function(){
@@ -70,34 +78,79 @@
 										if(musicIndex>-1){musicIndex = musicIndex-1
 													setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)}
 
-											document.getElementById("tip").innerHTML="本曲后播放: "+musicList[musicIndex+1]
-										if(musicIndex<-1){document.getElementById("tip").innerHTML='没有上一首了哦';
-											setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)}
-									}
+										document.querySelector('#musicPlayer').src=musicList[musicIndex]
+										document.getElementById("tishi").innerHTML=musicList[musicIndex]
+
+											document.getElementById("tip").innerHTML="正在播放: "+musicList[musicIndex]
+										if(musicIndex<0){
+										musicIndex = musicList.length-1
+										document.getElementById("tip").innerHTML='没有上一首了哦 (自动转到最后一首)';
+										setTimeout(function(){document.getElementById("tip").innerHTML=" ";},2000)};
+										document.querySelector('#musicPlayer').src=musicList[musicIndex]
+										document.getElementById("tishi").innerHTML=musicList[musicIndex]
+										}
 									function Mdown(){
 										musicIndex = musicIndex+1
-											document.getElementById("tip").innerHTML="本曲后播放: "+musicList[musicIndex+1]
+
+										document.querySelector('#musicPlayer').src=musicList[musicIndex]
+										document.getElementById("tishi").innerHTML=musicList[musicIndex]
+
+											document.getElementById("tip").innerHTML="正在播放: "+musicList[musicIndex]
 											setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)
-										if(musicIndex>=3){document.getElementById("tip").innerHTML='没有下一首了哦(自动转到1)';
-													setTimeout(function(){document.getElementById("tip").innerHTML=" ";},1000)}
+										if(musicIndex>=(musicList.length)){
+											musicIndex = 0
+											document.getElementById("tip").innerHTML='没有下一首了哦 (自动转到第一首)';
+											setTimeout(function(){document.getElementById("tip").innerHTML=" ";},2000);
+											document.querySelector('#musicPlayer').src=musicList[musicIndex]
+											document.getElementById("tishi").innerHTML=musicList[musicIndex]
+										}
 									}
 									function pause() {
 										window.speechSynthesis.pause();
 									}
 								</script>
-								<p><input class="button small" type="submit" value="上一首" onclick="Mup()"  />&ensp;&ensp;<input class="button small" type="submit" value="下一首" onclick="Mdown()" /><br><span id="tip"> </span></blockquote></p>
+								</audio>
+								<p><input class="button small" type="submit" value="上一首" onclick="Mup()"  />&ensp;&ensp;<input class="button small" type="submit" value="下一首" onclick="Mdown()" /><br><span id="tip"> </span></p></blockquote>
 							</p>
-								<p>01.沁园春·长沙<audio controls> <source src="yuwen/mp3/1.沁园春·长沙.mp3"></audio><br></p>
-								<p>02.诗经·邶风·静女<audio controls> <source src="yuwen/mp3/2.诗经·邶风·静女.m4a"></audio><br></p>
-								<p>03.古诗十九首·涉江采芙蓉<audio controls> <source src="yuwen/mp3/3.古诗十九首·涉江采芙蓉.m4a"></audio><br></p>
-								<p>04.琵琶行并序<audio controls> <source src="yuwen/mp3/4.琵琶行并序.mp3"></audio><br></p>
-								<!-- <p>05.<audio controls> <source src="yuwen/mp3/5..mp3"></audio><br></p>
-								<p>06.<audio controls> <source src="yuwen/mp3/6..mp3"></audio><br></p>
-								<p>07.<audio controls> <source src="yuwen/mp3/7..mp3"></audio><br></p>
-								<p>09.<audio controls> <source src="yuwen/mp3/9..mp3"></audio><br></p>
-								<p>10.<audio controls> <source src="yuwen/mp3/10..mp3"></audio><br></p> -->
+
+
+								<p>01.沁园春·长沙<audio controls loop="loop"> <source src="yuwen/mp3/1.沁园春·长沙.mp3"></audio><br></p>
+								<p>02.诗经·邶风·静女<audio controls loop="loop"> <source src="yuwen/mp3/2.诗经·邶风·静女.m4a"></audio><br></p>
+								<p>03.古诗十九首·涉江采芙蓉<audio controls loop="loop"> <source src="yuwen/mp3/3.古诗十九首·涉江采芙蓉.m4a"></audio><br></p>
+								<p>04.琵琶行<audio controls loop="loop"> <source src="yuwen/mp3/4.琵琶行.mp3"></audio><br></p>
+								<p>05.劝学<audio controls loop="loop"> <source src="yuwen/mp3/5.劝学.mp3"></audio><br></p>
+								<p>06.师说<audio controls> <source src="yuwen/mp3/6.师说.mp3"></audio><br></p>
+							<!--	<p>07.<audio controls> <source src="yuwen/mp3/7..mp3"></audio><br></p>-->
+							<!--	<p>09.<audio controls> <source src="yuwen/mp3/9..mp3"></audio><br></p>-->
+							<!--	<p>10.<audio controls> <source src="yuwen/mp3/10..mp3"></audio><br></p>-->
+
+
+							<script type="text/javascript">
+								function pauseAll(){
+									var audioElements = document.getElementsByTagName('audio');
+
+									for (var i=0; i<audioElements.length; i++) {
+
+										if (!audioElements[i].paused) {
+											audioElements[i].pause();
+										}
+									}
+								}
+								function PauseEcAuto(currentAudioId) {
+									var audioElements = document.getElementsByTagName('audio');
+
+									for (var i=0; i<audioElements.length; i++) {
+										var audioId = audioElements[i].getAttribute('id');
+
+										if (audioId !== currentAudioId && !audioElements[i].paused) {
+											audioElements[i].pause();
+										}
+									}
+								}
+							</script>
 						</div>
 					</div>
+			</div>
 
 				
 
