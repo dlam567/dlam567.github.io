@@ -6,6 +6,8 @@ function more_text() {
         success:
             function (data) {
                 displayData(data)
+		document.getElementById("tishi").innerHTML=musicList[musicIndex]
+		document.getElementById("musicPlayer").src=musicList[musicIndex]
             }
     });
 
@@ -21,9 +23,7 @@ function more_text() {
 
 
 
-var musicIndex=0, musicList=['yuwen/mp3/recite_yuwen_3/01.论语十二章.m4a', 'yuwen/mp3/recite_yuwen_3/02.大学之道.m4a', 'yuwen/mp3/recite_yuwen_3/03.人皆有不忍人之心.m4a', 'yuwen/mp3/recite_yuwen_3/04.《老子》四章.m4a', 'yuwen/mp3/recite_yuwen_3/05.无衣.m4a', 'yuwen/mp3/recite_yuwen_3/06.春江花月夜.m4a', 'yuwen/mp3/recite_yuwen_3/07.将进酒.m4a', 'yuwen/mp3/recite_yuwen_3/08.江城子·乙卯正月二十日夜记梦.m4a']
-
-document.getElementById("tishi").innerHTML=musicList[0]
+var musicIndex=0, musicList=['yuwen/mp3/recite_yuwen_3/01.论语十二章.mp3', 'yuwen/mp3/recite_yuwen_3/02.大学之道.mp3', 'yuwen/mp3/recite_yuwen_3/03.人皆有不忍人之心.mp3', 'yuwen/mp3/recite_yuwen_3/04.《老子》四章.mp3', 'yuwen/mp3/recite_yuwen_3/05.无衣.mp3', 'yuwen/mp3/recite_yuwen_3/06.春江花月夜.mp3', 'yuwen/mp3/recite_yuwen_3/07.将进酒.mp3', 'yuwen/mp3/recite_yuwen_3/08.江城子·乙卯正月二十日夜记梦.mp3']
 more_text()
 document.querySelector('#musicPlayer').addEventListener('ended', function(){
 
