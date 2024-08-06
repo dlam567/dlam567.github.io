@@ -1,3 +1,4 @@
+var datas
 function more_text() {
     $.ajax({
         url: "assets/js/yuwen3.json",
@@ -5,9 +6,11 @@ function more_text() {
         dataType: "json",
         success:
             function (data) {
-                displayData(data)
-		document.getElementById("tishi").innerHTML=musicList[musicIndex]
-		document.getElementById("musicPlayer").src=musicList[musicIndex]
+            datas = data
+            displayData(data)
+            document.getElementById("tishi").innerHTML=musicList[musicIndex]
+            document.getElementById("musicPlayer").src=musicList[musicIndex]
+
             }
     });
 
@@ -15,7 +18,6 @@ function more_text() {
         document.getElementById("detail").innerHTML=data[musicIndex].text
         document.getElementById("name").innerHTML=data[musicIndex].name
         document.getElementById("author").innerHTML="作者: " + data[musicIndex].author  + " | " + "页码: " + data[musicIndex].pagenum
-
     }
 }
 
@@ -25,6 +27,7 @@ function more_text() {
 
 var musicIndex=0, musicList=['yuwen/mp3/recite_yuwen_3/01.论语十二章.mp3', 'yuwen/mp3/recite_yuwen_3/02.大学之道.mp3', 'yuwen/mp3/recite_yuwen_3/03.人皆有不忍人之心.mp3', 'yuwen/mp3/recite_yuwen_3/04.《老子》四章.mp3', 'yuwen/mp3/recite_yuwen_3/05.无衣.mp3', 'yuwen/mp3/recite_yuwen_3/06.春江花月夜.mp3', 'yuwen/mp3/recite_yuwen_3/07.将进酒.mp3', 'yuwen/mp3/recite_yuwen_3/08.江城子·乙卯正月二十日夜记梦.mp3']
 more_text()
+
 document.querySelector('#musicPlayer').addEventListener('ended', function(){
 
     musicIndex=musicIndex<musicList.length-1?musicIndex+1:0
@@ -33,6 +36,7 @@ document.querySelector('#musicPlayer').addEventListener('ended', function(){
 
     document.getElementById("tishi").innerHTML=musicList[musicIndex]
     more_text()
+
 
 
 })
@@ -71,4 +75,32 @@ function Mdown(){
 }
 function pause() {
     window.speechSynthesis.pause();
+}
+
+var audio = document.getElementsByTagName("audio");
+audio = audio[0];
+audio.addEventListener("timeupdate", checkStatus);
+
+function checkStatus() {
+    // 检查音频是否已加载
+    if (audio.readyState > 2) {
+        document.title = "Tools"
+    }
+    if (datas){  //检查数组中是否有数据
+
+        // 检查音频是否暂停
+        if (audio.paused) {
+            document.title = "Tools"
+        } else {
+            document.title = "正在播放: "+ datas[musicIndex].name
+        }
+
+    }else{
+        document.title = "Tools"
+    }
+
+    // 检查音频是否在错误状态
+    if (audio.error) {
+        console.log("Error: " + audio.error.message);
+    }
 }

@@ -49,6 +49,8 @@
 
 							<input style="background-color: #FFFFFF" class="button small" type="submit" value="暂停全部音频" onclick="pauseAll()"  />
 							<input style="background-color: #FFFFFF" class="button small" type="submit" value="仅保留自动播放部分" onclick="PauseEcAuto('musicPlayer')" />
+							<input class="fa-check-s" type="checkbox" onclick="SetAutoPlay()" checked="checked" id="checkbox" ><label style="color: #FFFFFF; font-size: 13px" for="checkbox">自动播放</label>
+							<input class="fa-check-s" type="checkbox" onclick="SetAutoPlay()"  id="loopcheckbox" ><label style="color: #FFFFFF; font-size: 13px" for="loopcheckbox">单曲循环</label>
 
 						</ul>
 					</nav>
@@ -74,6 +76,7 @@
 
 
 							<script type="text/javascript">
+
 								function pauseAll(){
 									var audioElements = document.getElementsByTagName('audio');
 
@@ -94,6 +97,14 @@
 											audioElements[i].pause();
 										}
 									}
+								}
+							function SetAutoPlay(){
+								var checkboxStatue = document.getElementById('checkbox');
+								var loopStatue = document.getElementById('loopcheckbox');
+								var audioElements = document.getElementsByTagName('audio');
+								audioElements[0].autoplay = checkboxStatue.checked;
+								audioElements[0].loop = checkboxStatue.checked;
+								console.log(audioElements[0].autoplay)
 								}
 							</script>
 
